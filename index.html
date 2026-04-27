@@ -23,13 +23,13 @@ strong,b{font-weight:600}
 .wrap{max-width:760px;margin:0 auto;padding:0 24px}
 
 /* TOPBAR FISSA - urgenza countdown */
-.top{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--or);color:#fff;padding:10px 20px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(198,82,2,.28);font-weight:500}
-.top b{color:#fff;background:rgba(255,255,255,.22);padding:1px 8px;border-radius:3px;font-weight:700}
+.top{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ink);color:#fff;padding:10px 20px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(16,20,25,.25);font-weight:500}
+.top b{color:var(--or);background:rgba(198,82,2,.18);padding:1px 8px;border-radius:3px;font-weight:700}
 .cd{display:inline-flex;gap:4px;font-size:14px;align-items:center}
-.cd-u{display:inline-flex;align-items:baseline;gap:2px}.cd-u>span{background:#fff;color:var(--or);padding:3px 8px;border-radius:4px;font-weight:700;min-width:28px;text-align:center;font-variant-numeric:tabular-nums;box-shadow:0 1px 3px rgba(0,0,0,.12)}.cd-u small{font-size:10px;opacity:.85;text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-right:5px}@keyframes cdpulse{0%,100%{transform:scale(1);box-shadow:0 1px 3px rgba(0,0,0,.12)}50%{transform:scale(1.06);box-shadow:0 2px 6px rgba(0,0,0,.2)}}.cd-u:last-child>span{animation:cdpulse 1s ease-in-out infinite}
+.cd-u{display:inline-flex;align-items:baseline;gap:2px}.cd-u>span{background:#fff;color:var(--or);padding:3px 8px;border-radius:4px;font-weight:700;min-width:28px;text-align:center;font-variant-numeric:tabular-nums;box-shadow:0 1px 3px rgba(0,0,0,.18)}.cd-u small{font-size:10px;opacity:.85;text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-right:5px}@keyframes cdpulse{0%,100%{transform:scale(1);box-shadow:0 1px 3px rgba(0,0,0,.18)}50%{transform:scale(1.06);box-shadow:0 2px 6px rgba(0,0,0,.3)}}.cd-u:last-child>span{animation:cdpulse 1s ease-in-out infinite}
 
 /* HEADER LOGO + REASSURANCE BAR */
-.hd{position:fixed;top:38px;left:0;right:0;z-index:99;background:rgba(235,231,224,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:10px 0}
+.hd{position:fixed;top:48px;left:0;right:0;z-index:99;background:rgba(235,231,224,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:10px 0}
 .hd-i{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .hd-logo{height:38px;width:auto;display:block}
 .hd-tel{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink);font-weight:600}
@@ -797,16 +797,16 @@ try{if(!localStorage.getItem("ckPref")){setTimeout(function(){var c=document.get
 
 <!-- FLOATING CTA ARANCIONE -->
 <style>
-.fab{position:fixed;bottom:24px;right:24px;z-index:998;display:inline-flex;align-items:center;gap:10px;padding:14px 20px 14px 18px;background:var(--or);color:#fff;border:none;border-radius:50px;font:600 14px var(--sa);text-decoration:none;cursor:pointer;box-shadow:0 6px 20px rgba(198,82,2,.35),0 2px 6px rgba(0,0,0,.1);transition:all .25s ease;letter-spacing:.01em}
-.fab:hover{background:var(--oh);transform:translateY(-2px);box-shadow:0 10px 28px rgba(198,82,2,.45),0 3px 8px rgba(0,0,0,.12)}
-.fab svg{flex-shrink:0}
-.fab::before{content:"";position:absolute;inset:-4px;border-radius:50px;border:2px solid var(--or);opacity:.4;animation:fabPulse 2s ease-out infinite;pointer-events:none}
-@keyframes fabPulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.18);opacity:0}}
-@media(max-width:640px){.fab{bottom:18px;right:18px;padding:12px 18px 12px 16px;font-size:13px}.fab svg{width:18px;height:18px}}
+.fab{position:fixed;bottom:24px;right:24px;z-index:998;width:56px;height:56px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;text-decoration:none;transition:transform .2s;box-shadow:0 4px 20px rgba(198,82,2,.35),0 0 0 0 rgba(198,82,2,.6);animation:fabRing 2.5s cubic-bezier(.4,0,.6,1) infinite}
+.fab:hover{transform:scale(1.08)}
+.fab::before{content:'Sopralluogo gratuito';position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%);background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;font-family:var(--sa);font-size:13px;font-weight:500;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 4px 16px rgba(16,20,25,.15)}
+.fab::after{content:'';position:absolute;right:-8px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:var(--ink);opacity:0;transition:opacity .2s}
+.fab:hover::before,.fab:hover::after{opacity:1}
+@keyframes fabRing{0%{box-shadow:0 4px 20px rgba(198,82,2,.35),0 0 0 0 rgba(198,82,2,.6)}70%{box-shadow:0 4px 20px rgba(198,82,2,.35),0 0 0 18px rgba(198,82,2,0)}100%{box-shadow:0 4px 20px rgba(198,82,2,.35),0 0 0 0 rgba(198,82,2,0)}}
+@media(max-width:640px){.fab{bottom:18px;right:18px;width:52px;height:52px}.fab svg{width:22px;height:22px}}
 </style>
 <a href="#form" class="fab" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});return false" aria-label="Richiedi sopralluogo gratuito">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-<span>Sopralluogo gratuito</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </a>
 </body>
 </html>
